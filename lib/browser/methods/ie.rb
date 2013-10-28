@@ -38,6 +38,10 @@ class Browser
       ie? && version == "11"
     end
 
+    def ie_x64?
+      ie? && !!(ua =~ /Win64/) && !!(ua =~ /x64/)
+    end
+
     # Detect if IE is running in compatibility mode.
     def compatibility_view?
       match = ua.match(TRIDENT_VERSION_REGEX)
